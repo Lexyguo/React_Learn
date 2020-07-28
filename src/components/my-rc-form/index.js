@@ -28,11 +28,14 @@ export default function createForm(Cmp) {
             let err = [];
             for (let field in this.options) {
                 let value = this.state[field];
-                let rule = this.options[field];
-                if (rule && rule.required && (value === undefined || value === '')) {
-                    err.push({
-                        [field]: rule.message,
-                    });
+                const {rules} = this.options[field]||[];
+                for (let rule of rules) {
+                    if (rule && rule.required && (value === undefined || value === '')) {
+                        err.push({
+                            [field]: rule.message,
+                            value
+                        });
+                    }
                 }
             }
             if (err.length === 0) {
