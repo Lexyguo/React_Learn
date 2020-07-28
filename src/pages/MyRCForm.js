@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { createForm } from "rc-form";
-// import createForm from "../components/my-rc-form/";
+// import { createForm } from "rc-form";
+import createForm from "../components/my-rc-form/";
 
 import Input from "../components/Input";
 
 const nameRules = { required: true, message: "请输入姓名！" };
 const passworRules = { required: true, message: "请输入密码！" };
 
-@createForm()
+@createForm
 class MyRCForm extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +34,7 @@ class MyRCForm extends Component {
   };
 
   render() {
-    console.log("props", this.props); //sy-log
+    // console.log("props", this.props); //sy-log
     // const {username, password} = this.state;
     const { getFieldDecorator } = this.props.form;
     return (
