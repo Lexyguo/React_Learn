@@ -7,7 +7,7 @@ import Input from "../components/Input";
 const nameRules = { required: true, message: "请输入姓名！" };
 const passworRules = { required: true, message: "请输入密码！" };
 
-@createForm
+@createForm()
 class MyRCForm extends Component {
   constructor(props) {
     super(props);
