@@ -14,7 +14,7 @@ export default function combineReducers(reducers) {
         }
 
         hasChanged =
-            hasChanged || Object.keys(reducers).length !== Object.keys(state).length;
+            hasChanged || Object.keys(nextState).length !== Object.keys(state).length;
 
         return hasChanged ? nextState : state;
     };
