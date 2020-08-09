@@ -44,15 +44,18 @@ export default defineConfig({
       },
     },
     {
+      exact: true,
       path: '/user',
       menu: {
         name: '用户中心',
       },
+      component: '@/pages/user/index',
       children: [
         {
+          exact: true,
           path: '/user',
           menu: {
-            name: '用户详情',
+            name: '用户列表',
           },
           component: '@/pages/user/index',
         },
