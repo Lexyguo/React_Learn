@@ -36,6 +36,7 @@ const jsx = (
     <a href="https://www.kaikeba.com/">开课吧</a>
     <ClassComp name="class" color="red" fontSize="50px" />
     <FunctionComp name="function" />
+    {/* 目前的kreact只实现了对 文本、function、类节点的实现，不包含对如下节点的实现 */}
     {[1, 2].map(item => (
       <React.Fragment key={item}>{item}</React.Fragment>
     ))}
