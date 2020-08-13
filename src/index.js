@@ -38,8 +38,9 @@ const jsx = (
     <FunctionComp name="function" />
     {/* 目前的kreact只实现了对 文本、function、类节点的实现，不包含对如下节点的实现 */}
     {[1, 2].map(item => (
-      <React.Fragment key={item}>{item}</React.Fragment>
+      <React.Fragment key={item}>Fragment{item}</React.Fragment>
     ))}
+    <h1>aaa</h1>
     {/* <>
       <h1>aaa</h1>
       <h1>bbb</h1>

@@ -100,16 +100,15 @@ function reconcileChildren(workInProgressFiber, children) {
   for (let i = 0; i < children.length; i++) {
     const child = children[i];
     if (Object.prototype.toString.call(child).slice(8, 13) === 'Array') {
-      console.log(children);
-      console.log(children.length);
-      var list = children;
-      child.forEach((c, j) => {
-        console.log(c);
-        list = list.slice(i + j, 0, c);
+      let childrenList = children;
+      let index = 1;
+      child.forEach(c => {
+        childrenList.splice(i + index, 0, ...c.props.children);
+        index += c.props.children.length;
       });
-      list.slice(i, 1);
-      children = list;
-      console.log(children.length);
+
+      childrenList.splice(i, 1);
+      reconcileChildren(workInProgressFiber, childrenList);
       break;
     }
     // 现在只考虑初次渲染
@@ -128,7 +127,7 @@ function reconcileChildren(workInProgressFiber, children) {
     } else {
       prevSlibling.sibling = newFiber;
     }
-    console.log('newFiber', newFiber);
+    // console.log('newFiber', newFiber);
     prevSlibling = newFiber;
   }
 }
