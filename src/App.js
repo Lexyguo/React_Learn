@@ -4,10 +4,10 @@ import './App.css';
 //   BrowserRouter as Router, Route, Link, Switch,
 //   withRouter, Prompt
 // } from 'react-router-dom'
-import {
-  BrowserRouter as Router, Route, Link, Switch,
-  withRouter, Prompt
-} from './kReactRouterDom'
+// import {
+//   BrowserRouter as Router, Route, Link, Switch,
+//   withRouter, Prompt
+// } from './kReactRouterDom'
 // import AntdFormPage from "./pages/AntdFormPage";
 // import MyRCFieldForm from "./pages/MyRCFieldForm";
 // import MyRCForm from "./pages/MyRCForm";
@@ -19,6 +19,8 @@ import HomePage from "./pages/HomePage";
 import WelcomePage from "./pages/WelcomePage";
 import UserPage from "./pages/UserPage";
 import _404Page from "./pages/404Page";
+import UseCallbackPage from "./pages/UseCallbackPage";
+import UseMemoPage from "./pages/UseMemoPage";
 
 function App() {
   return (
@@ -30,7 +32,7 @@ function App() {
       {/* <HooksPage /> */}
       {/* <ReactReduxPage /> */}
       {/* <ReactReduxHookPage /> */}
-      <Router>
+      {/* <Router>
         <Link to="/">首页</Link>
         <Link to="/welcome">欢迎页</Link>
         <Link to="/user">用户中心</Link>
@@ -43,41 +45,43 @@ function App() {
           <Route component={_404Page}></Route>
         </Switch>
 
-      </Router>
+      </Router> */}
+      <UseCallbackPage />
+      {/* <UseMemoPage /> */}
     </div>
   );
 }
 
 export default App;
 
-@withRouter
-class ProductPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { confirm: true };
-  }
+// @withRouter
+// class ProductPage extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = { confirm: true };
+//   }
 
-  render() {
-    // console.log(this.props)
-    const { params, url } = this.props.match;
-    return <div>
-      <h3>Product id={params.id}</h3>
-      <Link to={url + '/detail'} >详情</Link>
-      <Route path={url + '/detail'} component={Detail}></Route>
-      {/* <Prompt />官方说明：用于在用户离开页面之前及时提示用户。当你的应用程序
-      进入应阻止用户离开的状态时（比如一个表格被填满了一半），渲染一个 <Prompt> 。 */}
-      <Prompt
-        when={this.state.confirm}
-        message="Are you sure you want to leave?"
-      // message={location => {
-      //   return "Are you sure you want to leave-fun";
-      // }}
-      /></div>
-  }
+//   render() {
+//     // console.log(this.props)
+//     const { params, url } = this.props.match;
+//     return <div>
+//       <h3>Product id={params.id}</h3>
+//       <Link to={url + '/detail'} >详情</Link>
+//       <Route path={url + '/detail'} component={Detail}></Route>
+//       {/* <Prompt />官方说明：用于在用户离开页面之前及时提示用户。当你的应用程序
+//       进入应阻止用户离开的状态时（比如一个表格被填满了一半），渲染一个 <Prompt> 。 */}
+//       <Prompt
+//         when={this.state.confirm}
+//         message="Are you sure you want to leave?"
+//       // message={location => {
+//       //   return "Are you sure you want to leave-fun";
+//       // }}
+//       /></div>
+//   }
 
-}
+// }
 
-function Detail({ match }) {
+// function Detail({ match }) {
 
-  return (<div><h4>detail of {match.url}</h4></div>)
-}
+//   return (<div><h4>detail of {match.url}</h4></div>)
+// }
